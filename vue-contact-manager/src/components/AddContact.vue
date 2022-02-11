@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import { v4 as uuidv4 } from 'uuid';
 export default {
     data() {
         return {
@@ -45,6 +46,8 @@ export default {
         },
     methods: {
         submitForm() {
+            this.contact.id = uuidv4();
+            // console.log("after uuid", this.contact);
             this.$emit('add-contact', this.contact);
             this.contact = {
                 name: '',
@@ -56,7 +59,10 @@ export default {
                 },
             };
         },
-    }
+    },
+    // mounted () {
+    //     console.log("before uuid", this.contact);
+    // },
 }
 </script>
 

@@ -1,6 +1,8 @@
 <template>
-  <NavBar></NavBar>
-  <router-view class="container py-3"/>
+  <div>
+    <NavBar></NavBar>
+    <router-view class="container py-3"/>
+  </div>
 </template>
 
 <script>

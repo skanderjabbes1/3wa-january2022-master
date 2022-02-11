@@ -8,21 +8,33 @@
             v-for="contact in list"
             v-bind:key="contact.id"
             class="list-group-item"
+            @click="currentContact = contact"
           > {{ contact.name }}
           </li>
       </ul>
       </div>
-      <div class="col"></div>
+      <div class="col">
+        <ContactDetails v-if="currentContact" :contact="currentContact"></ContactDetails>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import ContactDetails from './ContactDetails.vue';
 export default {
     name: 'ContactList',
     props: {
         list: Array
-        },
+    },
+    components: {
+      ContactDetails,
+    },
+    data() {
+      return {
+        currentContact: null
+      }
+    },
 }
 </script>
 

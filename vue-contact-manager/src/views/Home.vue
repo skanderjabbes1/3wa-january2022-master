@@ -5,7 +5,13 @@
         <a class="nav-link" :class="{ active: tab === currentTab }">{{ tab }}</a>
       </li>
     </ul>
-    <component :is="currentTab" :list="contactList" @add-contact="addContact" class="tab p-3"></component>
+    <component
+      :is="currentTab"
+      :list="contactList"
+      @add-contact="addContact"
+      @delete-contact="deleteContact"
+      class="tab p-3"
+      ></component>
   </div>
 </template>
 
@@ -61,6 +67,9 @@ export default {
     addContact(contact) {
       this.contactList.push(contact);
       this.currentTab = "ContactList";
+    },
+    deleteContact(contact) {
+      this.contactList = this.contactList.filter(c => c.id !== contact.id);
     }
   },
 }

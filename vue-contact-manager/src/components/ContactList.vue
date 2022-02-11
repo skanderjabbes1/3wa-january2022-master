@@ -14,7 +14,11 @@
       </ul>
       </div>
       <div class="col">
-        <ContactDetails v-if="currentContact" :contact="currentContact"></ContactDetails>
+        <ContactDetails
+          v-if="currentContact"
+          :contact="currentContact"
+          @delete-contact="deleteContact"
+          ></ContactDetails>
       </div>
     </div>
   </div>
@@ -33,6 +37,12 @@ export default {
     data() {
       return {
         currentContact: null,
+      }
+    },
+    methods: {
+      deleteContact() {
+        this.$emit('delete-contact', this.currentContact);
+        this.currentContact = null;
       }
     },
 }

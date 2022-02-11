@@ -24,15 +24,44 @@
 import ContactDetails from './ContactDetails.vue';
 export default {
     name: 'ContactList',
-    props: {
-        list: Array
-    },
     components: {
       ContactDetails,
     },
     data() {
       return {
-        currentContact: null
+        currentContact: null,
+        list: [
+        {
+          id: 1,
+          name: "Leanne Graham",
+          email: "leanne.graham@gmail.com",
+          phone: "+21622334455",
+          address: {
+            street: "Kulas Light",
+            city: "Gwenborough",
+          },
+        },
+        {
+          id: 2,
+          name: "Ervin Howell",
+          email: "Shanna@melissa.tv",
+          phone: "010-692-6593 x09125",
+          address: {
+            street: "Victor Plains",
+            city: "Wisokyburgh",
+          },
+        },
+        {
+          id: 3,
+          name: "Clementine Bauch",
+          email: "Nathan@yesenia.net",
+          phone: "1-463-123-4447",
+          address: {
+            street: "Douglas Extension",
+            city: "McKenziehaven",
+          },
+        },
+      ],
       }
     },
 }

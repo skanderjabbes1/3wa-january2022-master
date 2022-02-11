@@ -5,7 +5,7 @@
         <a class="nav-link" :class="{ active: tab === currentTab }">{{ tab }}</a>
       </li>
     </ul>
-    <component :is="currentTab" class="tab p-3"></component>
+    <component :is="currentTab" :list="contactList" @add-contact="addContact" class="tab p-3"></component>
   </div>
 </template>
 
@@ -22,8 +22,46 @@ export default {
   data() {
     return {
       currentTab: "ContactList",
-      tabs: ['ContactList', 'AddContact']
+      tabs: ['ContactList', 'AddContact'],
+       contactList: [
+        {
+          id: 1,
+          name: "Leanne Graham",
+          email: "leanne.graham@gmail.com",
+          phone: "+21622334455",
+          address: {
+            street: "Kulas Light",
+            city: "Gwenborough",
+          },
+        },
+        {
+          id: 2,
+          name: "Ervin Howell",
+          email: "Shanna@melissa.tv",
+          phone: "010-692-6593 x09125",
+          address: {
+            street: "Victor Plains",
+            city: "Wisokyburgh",
+          },
+        },
+        {
+          id: 3,
+          name: "Clementine Bauch",
+          email: "Nathan@yesenia.net",
+          phone: "1-463-123-4447",
+          address: {
+            street: "Douglas Extension",
+            city: "McKenziehaven",
+          },
+        },
+      ],
     }
-  }
+  },
+  methods: {
+    addContact(contact) {
+      this.contactList.push(contact);
+      this.currentTab = "ContactList";
+    }
+  },
 }
 </script>
